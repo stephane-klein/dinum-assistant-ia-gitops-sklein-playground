@@ -5,7 +5,7 @@ import requests
 session = requests.Session()
 session.headers.update({
     'Content-Type': 'application/json',
-    'Authorization': f'Bearer {os.environ["OPEN_WEBUI_API_KEY_SECRET"]}'
+    'Authorization': f'Bearer {os.environ["DEV_OPEN_WEBUI_API_KEY_SECRET"]}'
 })
 
 functions_folder_path = os.path.abspath(
@@ -16,9 +16,9 @@ functions_folder_path = os.path.abspath(
     )
 )
 
-response = session.get('https://albert.numerique.gouv.fr/api/v1/functions/export')
+response = session.get('https://albert-dev.beta.numerique.gouv.fr/api/v1/functions/export')
 
-print(f'Export https://albert.numerique.gouv.fr function to "{functions_folder_path}" \n')
+print(f'Export https://albert-dev.beta.numerique.gouv.fr function to "{functions_folder_path}" \n')
 
 for function_file in response.json():
     target_path = os.path.join(

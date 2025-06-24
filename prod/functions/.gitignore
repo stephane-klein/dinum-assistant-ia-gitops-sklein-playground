@@ -1,0 +1,2 @@
+# Par défaut j'ignore tous les scripts parce que je préfère les versionner manuellement et éviter de publier par erreur des functions
+*.py

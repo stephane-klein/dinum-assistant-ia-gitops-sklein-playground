@@ -37,21 +37,21 @@ $ source .envrc
 Et pour finir, testez que vous avez bien accès à l'API:
 
 ```
-$ ./scritps/check-api-access.py
+$ ./prod/scritps/check-api-access.py
+Hello Stéphane Klein, your API Key secret token works successfully
+
+$ ./dev/scritps/check-api-access.py
 Hello Stéphane Klein, your API Key secret token works successfully
 ```
 
-## Export des functions
+## Instances de prod et dev
 
-```sh
-$ ./scritps/pull-functions.py
-Export https://albert.numerique.gouv.fr function to "/home/stephane/git/github.com/stephane-klein/dinum-assistant-ia-gitops-sklein-playground/functions"
+Pour le moment il existe deux instances de *Assistant IA* :
 
-- "avertissement_erreurs.py" exported
-- "assistant_résumé_v1.py" exported
-- "bob.py" exported
-- "assistant_résumé.py" exported
-```
+- https://albert.numerique.gouv.fr/ géré dans le dossier [`./prod/`](./prod/)
+- https://albert-dev.beta.numerique.gouv.fr/ géré dans le dossier [`./dev/`](./dev/)
+
+Je vous invite à explorer la suite de ce playground en vous rendant dans le dossier de l'instance de votre choix.
 
 ## Contributions
 
