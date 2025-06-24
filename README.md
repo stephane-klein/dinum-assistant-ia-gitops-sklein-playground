@@ -41,6 +41,18 @@ $ ./scritps/check-api-access.py
 Hello Stéphane Klein, your API Key secret token works successfully
 ```
 
+## Export des functions
+
+```sh
+$ ./scritps/pull-functions.py
+Export https://albert.numerique.gouv.fr function to "/home/stephane/git/github.com/stephane-klein/dinum-assistant-ia-gitops-sklein-playground/functions"
+
+- "avertissement_erreurs.py" exported
+- "assistant_résumé_v1.py" exported
+- "bob.py" exported
+- "assistant_résumé.py" exported
+```
+
 ## Contributions
 
 Ce projet utilise [Gitleaks](https://notes.sklein.xyz/Gitleaks/) pour éviter de publier par erreur des secrets.
