@@ -1,6 +1,6 @@
 # DINUM Assistant-IA GitOps Stéphane Klein playground
 
-Ce [*playground*](https://notes.sklein.xyz/Playground/) me permet de manipuler as code ([GitOps](https://notes.sklein.xyz/GitOps/) des éléments de configuration des instances <https://albert-dev.beta.numerique.gouv.fr/> et <https://albert.beta.numerique.gouv.fr/>.
+Ce [*playground*](https://notes.sklein.xyz/Playground/) me permet de manipuler as code ([GitOps](https://notes.sklein.xyz/GitOps/)) des éléments de configuration des instances <https://albert-dev.beta.numerique.gouv.fr/> et <https://albert.beta.numerique.gouv.fr/>.
 
 ## Conventions
 
