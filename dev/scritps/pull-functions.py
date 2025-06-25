@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import os
+import json
 import requests
+
+OPENWEBUI_BASE_URL = "https://albert-dev.beta.numerique.gouv.fr"
 
 session = requests.Session()
 session.headers.update({
@@ -16,16 +19,33 @@ functions_folder_path = os.path.abspath(
     )
 )
 
-response = session.get('https://albert-dev.beta.numerique.gouv.fr/api/v1/functions/export')
+response = session.get(f'{OPENWEBUI_BASE_URL}/api/v1/functions/export')
 
-print(f'Export https://albert-dev.beta.numerique.gouv.fr function to "{functions_folder_path}" \n')
+print(f'Export {OPENWEBUI_BASE_URL} function to "{functions_folder_path}" \n')
 
-for function_file in response.json():
-    target_path = os.path.join(
-        functions_folder_path,
-        f'{function_file["id"]}.py'
-    )
-    with open(target_path, 'w') as f:
-        f.write(function_file['content'])
+for function_row in response.json():
+    with open(
+        os.path.join(
+            functions_folder_path,
+            f'{function_row["id"]}.py'
+        ),
+        'w'
+    ) as f:
+        f.write(function_row['content'])
 
-    print(f'- "{function_file["id"]}.py" exported')
+    with open(
+        os.path.join(
+            functions_folder_path,
+            'valves',
+            f'{function_row["id"]}.json.secret'
+        ),
+        'w'
+    ) as f:
+        f.write(
+            json.dumps(
+                session.get(f'{OPENWEBUI_BASE_URL}/api/v1/functions/id/{function_row["id"]}/valves').json(),
+                indent=4
+            )
+        )
+
+    print(f'- "{function_row["id"]}" function exported')

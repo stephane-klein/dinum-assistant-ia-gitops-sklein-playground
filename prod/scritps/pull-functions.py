@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import os
+import json
 import requests
+
+OPENWEBUI_BASE_URL = "https://albert.numerique.gouv.fr"
 
 session = requests.Session()
 session.headers.update({
@@ -16,16 +19,38 @@ functions_folder_path = os.path.abspath(
     )
 )
 
-response = session.get('https://albert.numerique.gouv.fr/api/v1/functions/export')
+response = session.get(f'{OPENWEBUI_BASE_URL}/api/v1/functions/export')
 
-print(f'Export https://albert.numerique.gouv.fr function to "{functions_folder_path}" \n')
+print(f'Export {OPENWEBUI_BASE_URL} function to "{functions_folder_path}" \n')
 
-for function_file in response.json():
-    target_path = os.path.join(
-        functions_folder_path,
-        f'{function_file["id"]}.py'
-    )
-    with open(target_path, 'w') as f:
-        f.write(function_file['content'])
+for function_row in response.json():
+    with open(
+        os.path.join(
+            functions_folder_path,
+            f'{function_row["id"]}.py'
+        ),
+        'w'
+    ) as f:
+        f.write(function_row['content'])
 
-    print(f'- "{function_file["id"]}.py" exported')
+    with open(
+        os.path.join(
+            functions_folder_path,
+            'valves',
+            f'{function_row["id"]}.json.secret'
+        ),
+        'w'
+    ) as f:
+        valve_export_response = session.get(f'{OPENWEBUI_BASE_URL}/api/v1/functions/id/{function_row["id"]}/valves')
+        if valve_export_response.status_code == 200:
+            f.write(
+                json.dumps(
+                    valve_export_response.json(),
+                    indent=4
+                )
+            )
+        else:
+            print(f'Error: {valve_export_response.text}')
+            break
+
+    print(f'- "{function_row["id"]}" function exported')
