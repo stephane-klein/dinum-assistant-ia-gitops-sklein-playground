@@ -9,3 +9,10 @@ Export https://albert-dev.beta.numerique.gouv.fr/ function to "/home/stephane/gi
 - "..." exported
 - ...
 ```
+
+ou alors, exporter les [Open WebUI pipelines functions](https://docs.openwebui.com/pipelines/) vers `./pipelines/` avec la commande suivante :
+
+```sh
+$ ./scripts/pull-pipelines.py
+
+```
