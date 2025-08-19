@@ -1,5 +1,7 @@
 # Workspace de l'environnement de production
 
+## Exportation des Open WebUI functions
+
 Après avoir suivi les instructions de [`../README.md`](../README.md), vous pouvez par exemple exporter les [Open WebUI Functions](https://docs.openwebui.com/features/plugin/functions/) de l'instance de <https://albert.numerique.gouv.fr> vers `./functions/` avec la commande suivante :
 
 ```sh
