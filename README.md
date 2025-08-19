@@ -37,10 +37,10 @@ $ source .envrc
 Et pour finir, testez que vous avez bien accès à l'API:
 
 ```
-$ ./prod/scritps/check-api-access.py
+$ ./prod/scripts/check-api-access.py
 Hello Stéphane Klein, your API Key secret token works successfully
 
-$ ./dev/scritps/check-api-access.py
+$ ./dev/scripts/check-api-access.py
 Hello Stéphane Klein, your API Key secret token works successfully
 ```
 
