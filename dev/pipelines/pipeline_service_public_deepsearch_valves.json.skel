@@ -1,0 +1,18 @@
+{
+    "function_filename": "pipeline_service_public_deepsearch.py",
+    "valves": {
+        "MAX_TURNS": 4,
+        "ALBERT_URL": "https://albert.api.etalab.gouv.fr/v1",
+        "ALBERT_KEY": "...secret...",
+        "MODEL": "albert-large",
+        "RERANK_MODEL": "BAAI/bge-reranker-v2-m3",
+        "NUMBER_OF_CHUNKS": 5,
+        "SEARCH_SCORE_THRESHOLD": "0.35",
+        "RERANKER_SCORE_THRESHOLD": "0.1",
+        "REDACTOR_MODEL": "albert-small",
+        "ANALYTICS_MODEL": "albert-large",
+        "SUPERVISOR_MODEL": "albert-large",
+        "DEFAULT_MODEL": "albert-small",
+        "BRAVE_KEY": "none"
+    }
+}
